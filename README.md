@@ -1,22 +1,33 @@
-"# jpeg-compression" 
-This project implements a simple JPEG compression and decompression algorithm in Python. The process involves converting an image into the YCbCr color space, applying Discrete Cosine Transform (DCT), quantization, Run-Length Encoding (RLE), and compression.
+# jpeg-compression
+
+This project implements basic JPEG image compression using Discrete Cosine Transform (DCT), Zigzag pattern encoding, and Huffman coding. The goal is to reduce the size of the image while retaining quality, following the steps commonly used in JPEG compression.
+
+## Project Structure
+
+The project includes the following components:
+- **DCT (Discrete Cosine Transform)**: Converts 8x8 image blocks from spatial domain to frequency domain.
+- **Zigzag Pattern**: Used to reorder the DCT coefficients for more efficient compression.
+- **Quantization**: Reduces the precision of the DCT coefficients based on a quality factor.
+- **Huffman Encoding**: A lossless compression technique applied to further reduce the file size.
+- **YCbCr Color Space**: Converts the image from RGB to YCbCr color space for better compression efficiency.
 
 ## Features
-- Convert RGB images to YCbCr color space
-- Apply DCT for compression
-- Quantize the DCT coefficients
-- Perform Run-Length Encoding (RLE) for efficient storage
-- Decompress the image back to the original using inverse operations
+
+- **Image Compression**: Compresses images by dividing them into 8x8 blocks, applying DCT, quantization, and Zigzag encoding.
+- **Huffman Encoding**: Further compresses the quantized coefficients using Huffman coding.
+- **Decompression**: Recovers the image by reversing the compression process with Huffman decoding, inverse Zigzag, inverse DCT, and RGB conversion.
+- **Quality Control**: Allows the setting of a compression quality factor, which controls the balance between image quality and compression ratio.
 
 ## Requirements
+
+To run the project, you need the following Python dependencies:
+
 - Python 3.x
-- NumPy
-- Pillow (PIL)
-- SciPy
+- `numpy`
+- `PIL` (Pillow)
+- `scipy`
 
-## Installation
-
-To get started, clone this repository to your local machine:
+Install the dependencies using:
 
 ```bash
-git clone https://github.com/AadhiKabilan/jpeg-compression.git
+pip install numpy pillow scipy
